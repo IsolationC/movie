@@ -1,23 +1,38 @@
 <template>
   <div>
-    <div class="header">
+    <div class="header" :style="'background-color:'+$store.state.color">
       <div class="header-btn">首页</div>
       <h2 class="header-title">TITLE</h2>
     </div>
     <div class="footer">
       <ul>
-        <li><router-link to="/">电影</router-link></li>
-        <li><router-link to="/music">音乐</router-link></li>
-        <li><router-link to="/book">书籍</router-link></li>
-        <li><router-link to="/photo">图片</router-link></li>
+        <li @click='routerLink("/")'>电影</li>
+        <li @click='routerLink("music")'>音乐</li>
+        <li @click='routerLink("book")'>书籍</li>
+        <li @click='routerLink("photo")'>图片</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
+  import store from '@/vuex/store'
   export default({
+    store,
+    data(){
+        return{
+            bgcolor:'red'
+        }
+    },
 
-  })
+    methods: {
+      routerLink(path){
+          this.$router.push(path);
+          if(path=='book'){
+              this.bgcolor='brown';
+          }
+      }
+    }
+    })
 </script>
 <style scoped>
   .header{
