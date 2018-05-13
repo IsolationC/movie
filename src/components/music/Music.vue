@@ -1,15 +1,15 @@
 <template>
-  <h1>book</h1>
+  <h1>music</h1>
 </template>
 <script>
   import store from '@/vuex/store'
   export default({
     store,
     created (){
-        this.$store.commit('routerLinks',{
-            color:'rgb(121, 85, 72)',
-            title:'book'
-        });
+      this.$store.commit('routerLinks',{
+        color:'rgb(0, 150, 136)',
+        title:'music'
+      });
     }
   })
 </script>
